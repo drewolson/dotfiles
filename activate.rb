@@ -11,8 +11,9 @@ home_dir = File.expand_path("~")
 
 platform_specific = Dir.glob(File.join(working_dir,ARGV[0] || "mac","*"))
 all_platforms = Dir.glob(File.join(working_dir,"all","*"))
+vim_config = Dir.glob(File.join(working_dir,"vim","*"))
 
-(platform_specific + all_platforms).each do |filename|
+(platform_specific + all_platforms + vim_config).each do |filename|
   sym_link = File.join(home_dir,".#{File.basename(filename)}")
 
   FileUtils.rm sym_link if File.symlink?(sym_link) || File.exist?(sym_link)
