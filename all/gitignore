@@ -3,4 +3,5 @@ TAGS
 .DS_STORE
 tmp/
 *.swp
+.tmtags
 
