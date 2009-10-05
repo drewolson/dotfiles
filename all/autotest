@@ -1,11 +1,3 @@
-module Autotest::Scope
-  Autotest.add_hook :initialize do |at|
-    unless ARGV.empty?
-      at.find_directories = ARGV.length == 1 ? ["spec/#{ARGV.first}","app/#{ARGV.first}"] : ARGV.dup
-    end
-  end
-end
-
 module Autotest::Growl
   def self.growl title, msg, img, pri=0, stick="" 
     system "growlnotify -n autotest --image #{img} -p #{pri} -m #{msg.inspect} #{title} #{stick}" 
