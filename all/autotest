@@ -1,0 +1,33 @@
+module Autotest::Growl
+
+  def self.growl title, msg, img, pri=0, stick="" 
+    system "growlnotify -n autotest --image #{img} -p #{pri} -m #{msg.inspect} #{title} #{stick}" 
+  end
+
+  Autotest.add_hook :run_command do
+    print "\n"*2 + '-'*80 + "\n"*2
+    print "\e[2J\e[f"   # clear the terminal
+  end
+
+  Autotest.add_hook :ran_command do |autotest|
+    name = Dir.pwd.split(/\//).last
+    if autotest.results.grep(/Finished in/).empty?
+      growl "Project #{name} cannot run examples", '', "~/.autotest_images/fail_50.png" 
+    else
+      filtered = autotest.results.grep(/\d+\s.*examples?/)
+      output = filtered.empty? ? '' : filtered.last.slice(/(\d+)\s.*examples?,\s(\d+)\s.*failures?(?:,\s(\d+)\s.*pending)?/)
+      if output =~ /[1-9]\d*\sfailures?/
+        output =~ /(\d+)\s.*examples?,\s(\d+)\s.*failures?/
+        examples, failures = $1, $2
+        number = (failures.to_f / examples.to_f / 2 * 10).round
+        number += 1 if number.zero?
+
+        growl "RSpec results", "#{output}", "~/.autotest_images/fail#{number}0.png" 
+      else
+        growl "RSpec results", "#{output}", "~/.autotest_images/pass.png" 
+      end
+    end
+  end
+
+end
+
