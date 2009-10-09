@@ -6,7 +6,7 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 
-alias slice='ssh drew@drewolson.org'
+alias slice='ssh drew@67.207.138.86'
 alias grep='grep --color'
 alias sbcl='sbcl --noinform'
 alias sd='screen -x drew'
