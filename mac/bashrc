@@ -14,8 +14,11 @@ alias ll='ls -la'
 alias fbolt='cd ~/code/fbolt'
 alias ss='./script/server'
 alias sc='./script/console'
+alias m='script/generate migration'
+alias mp='rake db:migrate && rake db:test:prepare'
 alias feature='cucumber -r features'
 alias browser='rake selenium:restart && cucumber'
+bm () { ./script/generate migration $* && rake db:migrate && rake db:test:prepare; }
 
 parse_git_branch() { 
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/' 
