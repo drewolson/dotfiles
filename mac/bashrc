@@ -1,4 +1,4 @@
-export PATH=/opt/local/bin:/usr/local/bin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export JAVA_HOME=/Library/Java/Home
 export VIM_APP_DIR=/Applications/MacVim/
@@ -18,6 +18,8 @@ alias m='script/generate migration'
 alias mp='rake db:migrate && rake db:test:prepare'
 alias feature='cucumber -r features'
 alias browser='rake selenium:restart && cucumber'
+alias node-repl='rlwrap node-repl'
+alias lein-repl='rlwrap lein repl'
 bm () { ./script/generate migration $* && rake db:migrate && rake db:test:prepare; }
 
 parse_git_branch() { 
