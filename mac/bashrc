@@ -20,6 +20,7 @@ alias feature='cucumber -r features'
 alias browser='rake selenium:restart && cucumber'
 alias node-repl='rlwrap node-repl'
 alias lein-repl='rlwrap lein repl'
+alias git='hub'
 bm () { ./script/generate migration $* && rake db:migrate && rake db:test:prepare; }
 
 parse_git_branch() { 
