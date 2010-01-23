@@ -1,6 +1,6 @@
-tags
-TAGS
-.DS_STORE
+/tags
+/TAGS
+/.DS_STORE
 tmp/
 *.swp
 .tmtags
