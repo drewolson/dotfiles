@@ -1,3 +1,5 @@
+IRB.conf[:PROMPT_MODE] = :SIMPLE
+
 require 'rubygems'
 require 'wirble'
 require 'sketches'
