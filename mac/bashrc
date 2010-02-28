@@ -1,14 +1,11 @@
 export PATH=/opt/local/bin:/opt/local/sbin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export JAVA_HOME=/Library/Java/Home
-export VIM_APP_DIR=/Applications/MacVim/
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 
-alias slice='ssh drew@67.207.138.86'
 alias grep='grep --color'
-alias sbcl='sbcl --noinform'
 alias sd='screen -x drew'
 alias ll='ls -la'
 alias btg='cd ~/bt/gateway'
@@ -17,8 +14,6 @@ alias ss='./script/server'
 alias sc='./script/console'
 alias m='script/generate migration'
 alias mp='rake db:migrate && rake db:test:prepare'
-alias feature='cucumber -r features'
-alias browser='rake selenium:restart && cucumber'
 alias node-repl='rlwrap node-repl'
 alias lein-repl='rlwrap lein repl'
 bm () { ./script/generate migration $* && rake db:migrate && rake db:test:prepare; }
