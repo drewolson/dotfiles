@@ -16,6 +16,7 @@ alias m='script/generate migration'
 alias mp='rake db:migrate && rake db:test:prepare'
 alias node-repl='rlwrap node-repl'
 alias lein-repl='rlwrap lein repl'
+alias coffee-repl='rlwrap coffee -i'
 bm () { ./script/generate migration $* && rake db:migrate && rake db:test:prepare; }
 
 parse_git_branch() {
