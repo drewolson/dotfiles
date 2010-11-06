@@ -1,4 +1,4 @@
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/opt/local/lib/php/bin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/opt/local/lib/mysql5/bin:/opt/local/lib/php/bin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
