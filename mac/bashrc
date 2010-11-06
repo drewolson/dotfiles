@@ -5,6 +5,8 @@ export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 
+source ~/code/personal/ec2/env
+
 alias rc='rake_commit'
 alias grep='grep --color'
 alias sd='screen -x drew'
