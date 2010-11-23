@@ -23,6 +23,10 @@ if [ -f ~/code/personal/ec2/env ]; then
   source ~/code/personal/ec2/env
 fi
 
+if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
+  source ~/bt/system-scripts/pairing_stations/ec2env
+fi
+
 if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
   source ~/bt/system-scripts/pairing_stations/aliases
 fi
