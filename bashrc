@@ -1,5 +1,5 @@
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/opt/local/lib/mysql5/bin:/opt/local/lib/php/bin:~/bin:/usr/local/mongodb/bin:/Applications/plt_scheme/bin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
+export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/opt/local/lib/mysql5/bin:/opt/local/lib/php/bin:~/bin:$PATH
+export MANPATH=/opt/local/share/man:~/share/man:$MANPATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -11,7 +11,6 @@ alias ll='ls -la'
 alias ss='./script/server'
 alias sc='./script/console'
 alias lein-repl='rlwrap lein repl'
-alias coffee-repl='rlwrap coffee -i'
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
