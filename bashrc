@@ -10,7 +10,6 @@ alias rc='rake_commit'
 alias ll='ls -la'
 alias ss='./script/server'
 alias sc='./script/console'
-alias lein-repl='rlwrap lein repl'
 
 parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
@@ -23,6 +22,7 @@ if [ -f ~/code/personal/ec2/env ]; then
 fi
 
 if [ -f ~/bt/system-scripts/pairing_stations/ec2env ]; then
+  export SYSTEM_SCRIPTS=~/bt/system-scripts
   source ~/bt/system-scripts/pairing_stations/ec2env
 fi
 
