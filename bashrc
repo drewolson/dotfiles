@@ -1,10 +1,11 @@
-export PATH=/opt/local/bin:/opt/local/sbin:/opt/local/lib/postgresql84/bin:/opt/local/lib/mysql5/bin:/opt/local/lib/php/bin:~/node_modules/.bin:~/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/share/python:~/bin:$PATH
 export MANPATH=/opt/local/share/man:~/share/man:$MANPATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
+export NODE_PATH=/usr/local/lib/node:$NODE_PATH
 
 alias rc='rake_commit'
 alias ll='ls -la'
@@ -30,12 +31,12 @@ if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
   source ~/bt/system-scripts/pairing_stations/aliases
 fi
 
-if [ -f /opt/local/etc/bash_completion ]; then
-  source /opt/local/etc/bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  source `brew --prefix`/etc/bash_completion
 fi
 
-if [ -f /opt/local/share/doc/git-core/contrib/completion/git-completion.bash ]; then
-  source /opt/local/share/doc/git-core/contrib/completion/git-completion.bash
+if [ -f `brew --prefix git`/etc/bash_completion.d/git-completion.bash ]; then
+  source `brew --prefix git`/etc/bash_completion.d/git-completion.bash
 fi
 
 if [[ -s ~/.rvm/scripts/rvm ]]; then
