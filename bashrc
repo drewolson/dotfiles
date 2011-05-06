@@ -1,4 +1,4 @@
-export PATH=/usr/local/bin:/usr/local/share/python:~/bin:$PATH
+export PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
