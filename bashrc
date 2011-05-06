@@ -1,5 +1,6 @@
 export PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
 export JAVA_HOME=/Library/Java/Home
+export CLASSPATH=$CLASSPATH:`brew --prefix clojure-contrib`/clojure-contrib.jar
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
