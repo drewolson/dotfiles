@@ -1,0 +1,11 @@
+[color]
+  ui = auto
+[alias]
+  ci = commit
+  co = checkout
+  st = status
+  ch = cherry -v origin
+  br = branch
+  addall = add -A .
+[core]
+  excludesfile = ~/.gitignore
