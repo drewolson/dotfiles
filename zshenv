@@ -3,6 +3,10 @@ compinit
 autoload -U colors
 colors
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+
 setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
@@ -20,6 +24,13 @@ alias rc='rake_commit'
 alias ll='ls -la'
 alias ss='./script/server'
 alias sc='./script/console'
+
+_cap () {
+  if [ -f Capfile ]; then
+    compadd `cap -vT | grep '^cap' | cut -d ' ' -f 2`
+  fi
+}
+compdef _cap cap
 
 git_prompt_info() {
   ref=$(/usr/local/bin/git symbolic-ref HEAD 2> /dev/null) || return
