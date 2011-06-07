@@ -34,6 +34,13 @@ _cap () {
 }
 compdef _cap cap
 
+_rake () {
+  if [ -f Rakefile ]; then
+    compadd `rake --silent --tasks | cut -d " " -f 2`
+  fi
+}
+compdef _rake rake
+
 git_prompt_info() {
   ref=$(/usr/local/bin/git symbolic-ref HEAD 2> /dev/null) || return
   echo " (${ref#refs/heads/})"
