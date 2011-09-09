@@ -11,7 +11,7 @@ setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
 
-export PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=~/bin:~/.rbenv/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/share/python:$PATH
 export JAVA_HOME=/Library/Java/Home
 if [ -f /usr/local/bin/brew ]; then
   export CLASSPATH=$CLASSPATH:`brew --prefix clojure-contrib`/clojure-contrib.jar
@@ -63,4 +63,9 @@ fi
 
 if [[ -s ~/.rvm/scripts/rvm ]]; then
   source ~/.rvm/scripts/rvm
+fi
+
+if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
+  source ~/.rbenv/completions/rbenv.zsh
+  compdef _rbenv rbenv
 fi
