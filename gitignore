@@ -3,4 +3,5 @@
 /.DS_STORE
 /.rvmrc
 .tmtags
-
+/.rbenv-version
+/.rbenv-gemsets
