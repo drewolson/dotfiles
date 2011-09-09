@@ -61,10 +61,6 @@ if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
   source ~/bt/system-scripts/pairing_stations/aliases
 fi
 
-if [[ -s ~/.rvm/scripts/rvm ]]; then
-  source ~/.rvm/scripts/rvm
-fi
-
 if [ -f ~/.rbenv/completions/rbenv.zsh ]; then
   source ~/.rbenv/completions/rbenv.zsh
   compdef _rbenv rbenv
