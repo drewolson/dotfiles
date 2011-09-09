@@ -9,3 +9,6 @@
   addall = add -A .
 [core]
   excludesfile = ~/.gitignore
+[user]
+	name = Drew Olson
+	email = drew@drewolson.org
