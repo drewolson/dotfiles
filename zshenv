@@ -61,7 +61,4 @@ if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
   source ~/bt/system-scripts/pairing_stations/aliases
 fi
 
-if [ -f `brew --prefix rbenv`/completions/rbenv.zsh ]; then
-  source `brew --prefix rbenv`/completions/rbenv.zsh
-  compdef _rbenv rbenv
-fi
+[[ -s "/Users/drew/.rvm/scripts/rvm" ]] && source "/Users/drew/.rvm/scripts/rvm"
