@@ -27,20 +27,6 @@ alias ll='ls -la'
 alias ss='./script/server'
 alias sc='./script/console'
 
-_cap () {
-  if [ -f Capfile ]; then
-    compadd `cap -vT | grep '^cap' | cut -d ' ' -f 2`
-  fi
-}
-compdef _cap cap
-
-_rake () {
-  if [ -f Rakefile ]; then
-    compadd `rake --silent --tasks | cut -d " " -f 2`
-  fi
-}
-compdef _rake rake
-
 git_prompt_info() {
   ref=$(/usr/local/bin/git symbolic-ref HEAD 2> /dev/null) || return
   echo " (${ref#refs/heads/})"
