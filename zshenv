@@ -11,7 +11,7 @@ setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
 
-export PATH=~/bin:~/.rbenv/bin:~/.rbenv/shims:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=~/bin:~/.rbenv/bin:~/.rbenv/shims:/usr/local/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 if [ -f /usr/local/bin/brew ]; then
   export CLASSPATH=$CLASSPATH:`brew --prefix clojure-contrib`/clojure-contrib.jar
