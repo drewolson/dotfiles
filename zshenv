@@ -28,7 +28,7 @@ alias ss='./script/server'
 alias sc='./script/console'
 
 git_prompt_info() {
-  ref=$(/usr/local/bin/git symbolic-ref HEAD 2> /dev/null) || return
+  ref=$(/usr/bin/env git symbolic-ref HEAD 2> /dev/null) || return
   echo " (${ref#refs/heads/})"
 }
 
