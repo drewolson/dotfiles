@@ -4,7 +4,6 @@ defflow off
 vbell off
 startup_message off
 caption always "%{= kw}%-w%{= BW}%n %t%{-}%+w %-= @%H - %LD %d %LM - %c"
-escape ``
 
 # Testing New Stuff
 defscrollback 1000
