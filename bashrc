@@ -1,4 +1,4 @@
-export PATH=~/bin:/usr/local/bin:/usr/local/share/python:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/share/python:$HOME/.rvm/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 export CLASSPATH=$CLASSPATH:`brew --prefix clojure-contrib`/clojure-contrib.jar
 export CLICOLOR=1
