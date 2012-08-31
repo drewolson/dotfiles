@@ -25,8 +25,9 @@ alias ss='./script/server'
 alias sc='./script/console'
 
 git_prompt_info() {
-  ref=$(/usr/bin/env git symbolic-ref HEAD 2> /dev/null) || return
-  echo " (${ref#refs/heads/})"
+  ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
+  user=$($(which git) config user.name 2> /dev/null)
+  echo " (${user}@${ref#refs/heads/})"
 }
 
 export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
