@@ -13,9 +13,6 @@ set -o emacs
 
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.rvm/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
-if [ -f /usr/local/bin/brew ]; then
-  export CLASSPATH=$CLASSPATH:`brew --prefix clojure-contrib`/clojure-contrib.jar
-fi
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'

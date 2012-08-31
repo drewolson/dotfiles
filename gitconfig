@@ -8,5 +8,5 @@
 [core]
   excludesfile = ~/.gitignore
 [user]
-  name = Drew Olson
+  name = drew
   email = drew@drewolson.org
