@@ -46,3 +46,5 @@ if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
 fi
 
 [[ -s "/Users/drew/.rvm/scripts/rvm" ]] && source "/Users/drew/.rvm/scripts/rvm"
+
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
