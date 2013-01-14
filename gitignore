@@ -5,3 +5,5 @@
 .tmtags
 /.rbenv-version
 /.rbenv-gemsets
+/.bundle
+/vendor/bundle

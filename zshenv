@@ -11,7 +11,7 @@ setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/.rvm/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/.rvm/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
