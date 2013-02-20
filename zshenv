@@ -18,6 +18,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
 export NODE_PATH=/usr/local/lib/node:$NODE_PATH
+export GOPATH=~/.go
 
 alias rc='rake_commit'
 alias ll='ls -la'
