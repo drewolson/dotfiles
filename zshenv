@@ -11,13 +11,13 @@ setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/share/npm/bin:$HOME/.rvm/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/heroku/bin:$PATH
 export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
-export NODE_PATH=/usr/local/lib/node:$NODE_PATH
+export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
 export GOPATH=~/.go
 
 alias rc='rake_commit'
@@ -46,6 +46,6 @@ if [ -f ~/bt/system-scripts/pairing_stations/aliases ]; then
   source ~/bt/system-scripts/pairing_stations/aliases
 fi
 
-[[ -s "/Users/drew/.rvm/scripts/rvm" ]] && source "/Users/drew/.rvm/scripts/rvm"
-
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+[[ -s /Users/drew/.nvm/nvm.sh ]] && . /Users/drew/.nvm/nvm.sh
