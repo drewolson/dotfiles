@@ -12,7 +12,6 @@ setopt prompt_subst
 set -o emacs
 
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/heroku/bin:$PATH
-export JAVA_HOME=/Library/Java/Home
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
