@@ -17,7 +17,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
 export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
-export GOPATH=~/.go
+export GOPATH=~/go
 
 alias rc='rake_commit'
 alias ll='ls -la'
