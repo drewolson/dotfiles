@@ -1,0 +1,7 @@
+include /usr/local/share/doc/task/rc/dark-256.theme
+include /usr/local/share/doc/task/rc/holidays.en-US.rc
+
+calendar.holidays=full
+color=on
+data.location=~/crypt/.task
+weekstart=monday
