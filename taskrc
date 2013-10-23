@@ -1,6 +1,7 @@
 include /usr/local/share/doc/task/rc/holidays.en-US.rc
+include ~/.task-sync
 
 calendar.holidays=full
 color=on
-data.location=~/crypt/.task
+data.location=~/.task
 weekstart=monday
