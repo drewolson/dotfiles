@@ -19,6 +19,10 @@ export GREP_OPTIONS='--color=auto'
 export SBT_OPTS="-XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
 export GOPATH=~/go
 
+if [ -f /usr/libexec/java_home ]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
 alias rc='rake_commit'
 alias ll='ls -la'
 alias ss='./script/server'
