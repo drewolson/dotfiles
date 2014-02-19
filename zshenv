@@ -51,4 +51,4 @@ fi
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-[[ -s /Users/drew/.nvm/nvm.sh ]] && . /Users/drew/.nvm/nvm.sh
+[[ -s /usr/local/opt/nvm/nvm.sh ]] && source /usr/local/opt/nvm/nvm.sh
