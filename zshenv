@@ -11,7 +11,7 @@ setopt no_auto_menu
 setopt prompt_subst
 set -o emacs
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$PATH
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
