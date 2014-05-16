@@ -16,6 +16,7 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
+export NVM_DIR=$HOME/.nvm
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$GOPATH/bin:$PATH
 
