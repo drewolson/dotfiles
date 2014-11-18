@@ -18,7 +18,7 @@ export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
 export NVM_DIR=$HOME/.nvm
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$GOPATH/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$GOPATH/bin:$HOME/bin:$PATH
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
