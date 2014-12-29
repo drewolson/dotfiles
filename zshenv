@@ -17,6 +17,7 @@ export EDITOR='vim'
 export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
 export NVM_DIR=$HOME/.nvm
+export GPG_TTY=$(tty)
 
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$GOPATH/bin:$HOME/bin:$PATH
 
