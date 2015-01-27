@@ -19,7 +19,7 @@ export GOPATH=$HOME/go
 export NVM_DIR=$HOME/.nvm
 export GPG_TTY=$(tty)
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$GOPATH/bin:$HOME/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$HOME/bin:$GOPATH/bin:$PATH
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)

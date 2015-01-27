@@ -3,6 +3,7 @@
 /.DS_STORE
 /.rvmrc
 .tmtags
+/.ruby-version
 /.rbenv-version
 /.rbenv-gemsets
 /.bundle
