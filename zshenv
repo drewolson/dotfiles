@@ -9,6 +9,7 @@ bindkey '^Xe' edit-command-line
 
 setopt no_auto_menu
 setopt prompt_subst
+setopt no_global_rcs
 set -o emacs
 
 export CLICOLOR=1
