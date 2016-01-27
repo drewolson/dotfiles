@@ -21,7 +21,7 @@ export GO15VENDOREXPERIMENT=1
 export NVM_DIR=$HOME/.nvm
 export GPG_TTY=$(tty)
 
-export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$HOME/bin:$GOPATH/bin:$PATH
+export PATH=/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:$HOME/bin:$GOPATH/bin:$PATH
 
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
@@ -38,3 +38,5 @@ export PROMPT='%{$fg_bold[green]%}%n@%m:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 [[ -s /usr/local/opt/nvm/nvm.sh ]] && source /usr/local/opt/nvm/nvm.sh
+
+. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
