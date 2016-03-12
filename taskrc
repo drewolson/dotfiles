@@ -1,8 +1,0 @@
-include /usr/local/share/doc/task/rc/dark-blue-256.theme
-include /usr/local/share/doc/task/rc/holidays.en-US.rc
-include ~/.task-sync
-
-calendar.holidays=full
-color=on
-data.location=~/.task
-weekstart=monday
