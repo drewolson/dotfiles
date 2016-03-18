@@ -1,6 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
-export EDITOR='vim'
+export EDITOR='nvim'
 export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
 export GO15VENDOREXPERIMENT=1
