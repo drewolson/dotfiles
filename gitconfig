@@ -11,3 +11,5 @@
   name = drew
   email = drew@drewolson.org
   signingkey = 9FA98BD6
+[rebase]
+  autosquash = true
