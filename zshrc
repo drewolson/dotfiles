@@ -29,3 +29,6 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 [[ -s /usr/local/opt/nvm/nvm.sh ]] && source /usr/local/opt/nvm/nvm.sh
 
 . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+[[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/path.zsh.inc'
+[[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/completion.zsh.inc'
