@@ -24,11 +24,8 @@ git_prompt_info() {
 
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-[[ -s /usr/local/opt/nvm/nvm.sh ]] && source /usr/local/opt/nvm/nvm.sh
-
-. $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+[[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
+[[ -s $HOME/.asdf/completions/asdf.bash ]] && source $HOME/.asdf/completions/asdf.bash
 
 [[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/path.zsh.inc'
 [[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/completion.zsh.inc'
