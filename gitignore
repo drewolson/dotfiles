@@ -7,4 +7,5 @@
 /.rbenv-version
 /.rbenv-gemsets
 /.bundle
+/.tool-versions
 /vendor/bundle
