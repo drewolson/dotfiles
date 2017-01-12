@@ -3,10 +3,6 @@ compinit
 autoload -U colors
 colors
 
-autoload edit-command-line
-zle -N edit-command-line
-bindkey '^Xe' edit-command-line
-
 setopt no_auto_menu
 setopt prompt_subst
 setopt no_global_rcs
