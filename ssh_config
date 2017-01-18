@@ -1,0 +1,4 @@
+Host *
+  ForwardAgent yes
+  AddKeysToAgent yes
+  UseKeychain yes
