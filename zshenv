@@ -1,7 +1,6 @@
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export EDITOR='nvim'
-export GREP_OPTIONS='--color=auto'
 export GOPATH=$HOME/go
 export GPG_TTY=$(tty)
 export HOMEBREW_NO_ANALYTICS=1
