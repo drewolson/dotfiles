@@ -26,6 +26,3 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/completions/asdf.bash ]] && source $HOME/.asdf/completions/asdf.bash
-
-[[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/path.zsh.inc'
-[[ -s /usr/local/google-cloud-sdk ]] && source '/usr/local/google-cloud-sdk/completion.zsh.inc'
