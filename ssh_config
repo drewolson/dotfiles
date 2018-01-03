@@ -1,3 +1,7 @@
 Host *
+  IgnoreUnknown UseRoaming,AddKeysToAgent,UseKeychain
+  Compression yes
+  ServerAliveInterval 60
+  UseRoaming no
   AddKeysToAgent yes
   UseKeychain yes

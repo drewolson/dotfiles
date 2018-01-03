@@ -7,4 +7,4 @@ export HOMEBREW_NO_ANALYTICS=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export CPAIR_PAIR=drew
 
-export PATH=/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.cabal/bin:~/.mix/escripts:$HOME/bin:$GOPATH/bin:$PATH
+export PATH=/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.mix/escripts:$HOME/bin:$GOPATH/bin:$PATH
