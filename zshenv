@@ -1,5 +1,5 @@
 export CLICOLOR=1
-export EDITOR='nvim'
+export EDITOR='vim'
 export FZF_DEFAULT_OPTS='--reverse'
 export GOPATH=$HOME/go
 export GPG_TTY=$(tty)

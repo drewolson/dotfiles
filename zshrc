@@ -8,10 +8,6 @@ setopt prompt_subst
 setopt no_global_rcs
 set -o emacs
 
-if command -v nvim > /dev/null 2>&1; then
-  alias vim=nvim
-fi
-
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
