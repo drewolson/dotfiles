@@ -8,6 +8,8 @@ setopt prompt_subst
 setopt no_global_rcs
 set -o emacs
 
+alias ls='ls --color'
+
 if [ -f /usr/libexec/java_home ]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
