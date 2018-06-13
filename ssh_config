@@ -3,5 +3,6 @@ Host *
   Compression yes
   ServerAliveInterval 60
   UseRoaming no
+  User drew
   AddKeysToAgent yes
   UseKeychain yes
