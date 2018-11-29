@@ -25,7 +25,4 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/completions/asdf.bash ]] && source $HOME/.asdf/completions/asdf.bash
 
-rust_bin_dir=$(asdf which rust 2> /dev/null | sed 's/\/rust$//' 2> /dev/null)
-[[ -s ${rust_bin_dir} ]] && export PATH=${rust_bin_dir}:$PATH
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
