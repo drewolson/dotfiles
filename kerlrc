@@ -1,0 +1,1 @@
+KERL_CONFIGURE_OPTIONS="--disable-debug --disable-silent-rules --without-javac --enable-shared-zlib --enable-dynamic-ssl-lib --enable-hipe --enable-sctp --enable-smp-support --enable-threads --enable-kernel-poll --enable-wx --enable-darwin-64bit --enable-gettimeofday-as-os-system-time --with-ssl=/usr/local/opt/openssl --enable-dirty-schedulers"
