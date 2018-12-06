@@ -6,6 +6,7 @@ export GPG_TTY=$(tty)
 export HOMEBREW_NO_ANALYTICS=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export CPAIR_PAIR=drew
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 if [[ -n "${XDG_RUNTIME_DIR}" ]]; then
   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
