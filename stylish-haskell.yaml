@@ -19,8 +19,6 @@ steps:
       align: true
       remove_redundant: true
 
-  - trailing_whitespace: {}
-
 columns: 80
 
 newline: native
