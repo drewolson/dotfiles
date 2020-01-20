@@ -6,37 +6,3 @@ Host *
   User drew
   AddKeysToAgent yes
   UseKeychain yes
-
-Host pair*.chi*
-  User pair
-  ForwardAgent yes
-  Port 51322
-
-Host brainiac.chi
-  Hostname brainiac.chi.braintreepayments.com
-  Port 51322
-
-Host support01.chi support01.qa support01.stq support01.stc
-  Hostname %h.braintreepayments.com
-  Port 51322
-  ForwardAgent yes
-
-Host warp1 warp
-  Hostname warp.braintreepayments.com
-  Port 58224
-  ForwardAgent yes
-  ControlMaster auto
-  ControlPath /tmp/%r@%h:%p
-  ControlPersist 15m
-
-Host warp*.braintreepayments.com
- Port 58224
- ForwardAgent yes
-
-Host warp*.*.braintreepayments.com
- Port 58224
- ForwardAgent yes
-
-Host dropzone.paypalcorp.com
-  HostKeyAlgorithms ssh-rsa
-  KexAlgorithms diffie-hellman-group1-sha1
