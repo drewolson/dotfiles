@@ -19,6 +19,5 @@ git_prompt_info() {
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
-[[ -s $HOME/.asdf/completions/asdf.bash ]] && source $HOME/.asdf/completions/asdf.bash
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
