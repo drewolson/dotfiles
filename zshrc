@@ -8,6 +8,11 @@ setopt prompt_subst
 setopt no_global_rcs
 set -o emacs
 
+if [ ! $(uname -s) = "Darwin" ]; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+fi
+
 ls --color=auto &> /dev/null && alias ls='ls --color=auto'
 
 git_prompt_info() {

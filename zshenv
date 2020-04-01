@@ -14,9 +14,4 @@ if [[ -n "${XDG_RUNTIME_DIR}" ]]; then
   export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/ssh-agent.socket"
 fi
 
-if [ ! $(uname -s) = "Darwin" ]; then
-  alias pbcopy='xsel --clipboard --input'
-  alias pbpaste='xsel --clipboard --output'
-fi
-
 export PATH=/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
