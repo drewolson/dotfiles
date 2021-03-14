@@ -11,5 +11,3 @@ export CPAIR_PAIR=drew
 export ERL_AFLAGS="-kernel shell_history enabled"
 export KERL_BUILD_DOCS=yes
 export KERL_DOC_TARGETS=chunks
-
-export PATH=/opt/homebrew/bin:/sbin:/usr/sbin:/usr/local/bin:/usr/local/sbin:/usr/local/heroku/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
