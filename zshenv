@@ -1,5 +1,6 @@
 export CLICOLOR=1
 export EDITOR='vim'
+export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--reverse'
 export GOPATH=$HOME/go
 export GOPROXY="https://proxy.golang.org"
