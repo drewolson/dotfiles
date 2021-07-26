@@ -1,7 +1,7 @@
 export CLICOLOR=1
 export EDITOR='vim'
-export FZF_DEFAULT_COMMAND='rg --files'
 export ERL_AFLAGS="-kernel shell_history enabled"
+export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--reverse'
 export GO111MODULE="on"
 export GOPATH=$HOME/go
@@ -11,3 +11,4 @@ export HOMEBREW_NO_ANALYTICS=1
 export KERL_BUILD_DOCS=yes
 export KERL_DOC_TARGETS=chunks
 export LSCOLORS=ExFxCxDxBxegedabagacad
+export NEXT_TELEMETRY_DISABLED=1
