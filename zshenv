@@ -1,5 +1,5 @@
 export CLICOLOR=1
-export EDITOR='vim'
+export EDITOR='nvim'
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files'
 export FZF_DEFAULT_OPTS='--reverse'
