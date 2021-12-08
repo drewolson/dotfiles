@@ -28,7 +28,10 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [[ -s $HOME/.asdf/plugins/java/set-java-home.zsh ]] && source $HOME/.asdf/plugins/java/set-java-home.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[[ -s /opt/homebrew/opt/llvm@12 ]] && export LLVM_SYS_120_PREFIX=/opt/homebrew/opt/llvm@12
 
 test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-export PATH=/opt/homebrew/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
+export PATH=/opt/homebrew/opt/llvm@12/bin:/opt/homebrew/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
+
+[[ -s /opt/homebrew/opt/llvm@12 ]] && export PATH=/opt/homebrew/opt/llvm@12/bin:$PATH
