@@ -3,3 +3,4 @@
 :set -Wno-type-defaults
 :set -XTypeApplications
 :set -XNamedFieldPuns
+:set -XFlexibleContexts

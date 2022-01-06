@@ -8,6 +8,7 @@ export GOPATH=$HOME/go
 export GOPROXY="https://proxy.golang.org"
 export GPG_TTY=$(tty)
 export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
 export KERL_BUILD_DOCS=yes
 export KERL_DOC_TARGETS=chunks
 export LSCOLORS=ExFxCxDxBxegedabagacad
