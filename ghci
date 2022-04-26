@@ -2,5 +2,7 @@
 :set prompt-cont "\ESC[1;35m > \ESC[m"
 :set -Wno-type-defaults
 :set -XTypeApplications
+:set -XDataKinds
+:set -XTypeOperators
 :set -XNamedFieldPuns
 :set -XFlexibleContexts
