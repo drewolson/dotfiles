@@ -33,4 +33,4 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [ -x "$(command -v xcrun)" ] && export C_INCLUDE_PATH="`xcrun --show-sdk-path`/usr/include/ffi"
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/plugins/java/set-java-home.zsh ]] && source $HOME/.asdf/plugins/java/set-java-home.zsh
-[ -f "/Users/drew/.ghcup/env" ] && source "/Users/drew/.ghcup/env"
+[ -f $HOME/.ghcup/env ] && source $HOME/.ghcup/env
