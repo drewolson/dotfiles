@@ -22,13 +22,14 @@ git_prompt_info() {
   echo " (${ref#refs/heads/})"
 }
 
-export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 export PATH=/opt/homebrew/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
+export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
+command -v xcrun > /dev/null && export C_INCLUDE_PATH="`xcrun --show-sdk-path`/usr/include/ffi"
 
 [[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/plugins/java/set-java-home.zsh ]] && source $HOME/.asdf/plugins/java/set-java-home.zsh
