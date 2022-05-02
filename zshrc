@@ -27,7 +27,7 @@ git_prompt_info() {
 
 test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-export PATH=/opt/homebrew/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
+export PATH=/opt/homebrew/bin:/opt/homebrew/opt/llvm/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$PATH
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 [ -x "$(command -v xcrun)" ] && export C_INCLUDE_PATH="`xcrun --show-sdk-path`/usr/include/ffi"
