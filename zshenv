@@ -1,4 +1,5 @@
 export CLICOLOR=1
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export EDITOR='nvim'
 export ERL_AFLAGS="-kernel shell_history enabled"
 export FZF_DEFAULT_COMMAND='rg --files'
