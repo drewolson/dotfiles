@@ -34,3 +34,4 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [[ -s $HOME/.asdf/plugins/java/set-java-home.zsh ]] && source $HOME/.asdf/plugins/java/set-java-home.zsh
 [ -f $HOME/.ghcup/env ] && source $HOME/.ghcup/env
 [[ ! -z "$XDG_RUNTIME_DIR" ]] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+[ -d /opt/homebrew/opt/llvm ] && export LLVM_SYS_130_PREFIX=/opt/homebrew/opt/llvm
