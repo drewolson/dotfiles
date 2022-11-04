@@ -14,3 +14,4 @@ export KERL_BUILD_DOCS=yes
 export KERL_DOC_TARGETS=chunks
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export NEXT_TELEMETRY_DISABLED=1
+export SHELL=$(which zsh)
