@@ -15,3 +15,5 @@ export KERL_DOC_TARGETS=chunks
 export LSCOLORS=ExFxCxDxBxegedabagacad
 export NEXT_TELEMETRY_DISABLED=1
 export SHELL=$(which zsh)
+export CPATH=$CPATH:/opt/homebrew/include
+export IDRIS2_CG=racket
