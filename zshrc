@@ -9,6 +9,7 @@ setopt no_global_rcs
 set -o emacs
 
 alias vim="nvim"
+alias dune="opam exec -- dune"
 
 if [ ! $(uname -s) = "Darwin" ]; then
   alias pbcopy='xsel --clipboard --input'
