@@ -9,7 +9,6 @@ setopt no_global_rcs
 set -o emacs
 
 alias vim="nvim"
-alias dune="opam exec -- dune"
 
 if [ ! $(uname -s) = "Darwin" ]; then
   alias pbcopy='xsel --clipboard --input'
@@ -25,8 +24,6 @@ git_prompt_info() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
 export PATH=/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
@@ -36,6 +33,7 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [ -f $HOME/.ghcup/env ] && source $HOME/.ghcup/env
 [[ ! -z "$XDG_RUNTIME_DIR" ]] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 [ -f $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ] && source $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
+[[ ! -r /Users/drew/.opam/opam-init/init.zsh ]] || source /Users/drew/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 if [[ "$(arch)" = "arm64" && -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
