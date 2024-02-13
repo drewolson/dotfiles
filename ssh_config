@@ -6,6 +6,4 @@ Host *
   AddKeysToAgent yes
   UseKeychain yes
 
-Host linux.cs.uchicago.edu
-  ForwardAgent yes
-  User drewolson
+Include private
