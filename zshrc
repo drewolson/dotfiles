@@ -24,7 +24,7 @@ git_prompt_info() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/bin:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
+export PATH=/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 [ -x "$(command -v xcrun)" ] && export C_INCLUDE_PATH="`xcrun --show-sdk-path`/usr/include/ffi"
