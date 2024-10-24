@@ -34,13 +34,10 @@ export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(gi
 [[ ! -z "$XDG_RUNTIME_DIR" ]] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 [ -f $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ] && source $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
+[[ -s $HOME/.cargo/env ]] && source $HOME/.cargo/env
 
-if [[ "$(arch)" = "arm64" && -f /opt/homebrew/bin/brew ]]; then
+if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
-
-if [[ "$(arch)" = "i386" && -f /usr/local/bin/brew ]]; then
-  eval "$(/usr/local/bin/brew shellenv)"
 fi
 
 if [ -d /opt/homebrew/opt/llvm@12 ]
