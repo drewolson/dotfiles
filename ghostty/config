@@ -1,3 +1,4 @@
+command = zsh
 cursor-style = block
 cursor-style-blink = false
 font-family = Fira Code Retina
