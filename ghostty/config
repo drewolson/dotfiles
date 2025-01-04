@@ -1,0 +1,9 @@
+cursor-style = block
+cursor-style-blink = false
+font-family = Fira Code Retina
+font-size = 17
+font-thicken = true
+macos-titlebar-proxy-icon = hidden
+shell-integration-features = no-cursor
+theme = IR_Black
+title = " "
