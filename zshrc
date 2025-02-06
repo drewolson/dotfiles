@@ -24,11 +24,9 @@ git_prompt_info() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export PATH=/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
 export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
 
 [ -x "$(command -v xcrun)" ] && export C_INCLUDE_PATH="`xcrun --show-sdk-path`/usr/include/ffi"
-[[ -s $HOME/.asdf/asdf.sh ]] && source $HOME/.asdf/asdf.sh
 [[ -s $HOME/.asdf/plugins/java/set-java-home.zsh ]] && source $HOME/.asdf/plugins/java/set-java-home.zsh
 [ -f $HOME/.ghcup/env ] && source $HOME/.ghcup/env
 [[ ! -z "$XDG_RUNTIME_DIR" ]] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
@@ -46,3 +44,5 @@ then
   export CPPFLAGS="-I/opt/homebrew/opt/llvm@12/include"
   export PATH=/opt/homebrew/opt/llvm@12/bin:$PATH
 fi
+
+export PATH=${ASDF_DATA_DIR:-$HOME/.asdf}/shims:/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
