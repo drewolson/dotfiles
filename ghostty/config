@@ -1,7 +1,7 @@
 command = zsh
 cursor-style = block
 cursor-style-blink = false
-font-family = FiraCode Nerd Font Mono
+font-family = Fira Code
 font-size = 19
 font-thicken = true
 macos-titlebar-proxy-icon = hidden
