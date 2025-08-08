@@ -34,7 +34,7 @@ fi
 [ -f $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh ] && source $HOME/.asdf/plugins/dotnet-core/set-dotnet-home.zsh
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 [[ -s $HOME/.cargo/env ]] && source $HOME/.cargo/env
-[ -x "$(command -v jj)" ] && source <(jj util completion zsh)
+[ -x "$(command -v jj)" ] && source <(COMPLETE=zsh jj)
 
 if [ -d /opt/homebrew/opt/llvm@12 ]; then
   export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
