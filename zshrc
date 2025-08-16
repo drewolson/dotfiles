@@ -35,6 +35,7 @@ fi
 [[ ! -r $HOME/.opam/opam-init/init.zsh ]] || source $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null
 [[ -s $HOME/.cargo/env ]] && source $HOME/.cargo/env
 [ -x "$(command -v jj)" ] && source <(COMPLETE=zsh jj)
+[ -x "$(command -v starship)" ] && eval "$(starship init zsh)"
 
 if [ -d /opt/homebrew/opt/llvm@12 ]; then
   export LDFLAGS="-L/opt/homebrew/opt/llvm@12/lib"
@@ -43,4 +44,3 @@ if [ -d /opt/homebrew/opt/llvm@12 ]; then
 fi
 
 export PATH=${ASDF_DATA_DIR:-$HOME/.asdf}/shims:/opt/homebrew/opt/libpq/bin:~/.mix/escripts:$HOME/.local/bin:$GOPATH/bin:$HOME/.dotnet/tools:$HOME/.elan/bin:$PATH
-export PROMPT='%{$fg_bold[green]%}%n:%{$fg_bold[blue]%}%~%{$fg_bold[green]%}$(git_prompt_info)%{$reset_color%}%(!.#.$) '
