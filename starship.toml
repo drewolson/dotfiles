@@ -18,7 +18,7 @@ truncation_symbol = "…/"
 # custom module for jj status
 [custom.jj]
 description = "The current jj status"
-when = "jj --ignore-working-copy root"
+detect_folders = [".jj"]
 symbol = "🥋 "
 command = '''
 jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
@@ -45,7 +45,7 @@ jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 -
 disabled = true
 
 [custom.git_status]
-when = "! jj --ignore-working-copy root"
+detect_folders = [".git", "!.jj"]
 command = "starship module git_status"
 description = "Only show git_status if we're not in a jj repo"
 
@@ -53,7 +53,7 @@ description = "Only show git_status if we're not in a jj repo"
 disabled = true
 
 [custom.git_commit]
-when = "! jj --ignore-working-copy root"
+detect_folders = [".git", "!.jj"]
 command = "starship module git_commit"
 description = "Only show git_commit if we're not in a jj repo"
 style = "cyan"
@@ -69,14 +69,14 @@ stashed = "≡"
 disabled = true
 
 [custom.git_metrics]
-when = "! jj --ignore-working-copy root"
+detect_folders = [".git", "!.jj"]
 command = "starship module git_metrics"
 
 [git_branch]
 disabled = true
 
 [custom.git_branch]
-when = "! jj --ignore-working-copy root"
+detect_folders = [".git", "!.jj"]
 command = "starship module git_branch"
 style = "bright-black"
 
@@ -84,6 +84,6 @@ style = "bright-black"
 disabled = true
 
 [custom.git_state]
-when = "! jj --ignore-working-copy root"
+detect_folders = [".git", "!.jj"]
 command = "starship module git_state"
 style = "bright-black"
