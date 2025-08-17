@@ -6,6 +6,7 @@ ${custom.jj}\
 ${custom.git_branch}\
 ${custom.git_state}\
 ${custom.git_status}\
+$line_break\
 $character"""
 
 add_newline = false
