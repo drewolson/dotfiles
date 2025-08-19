@@ -16,4 +16,4 @@ concat(
 '''
 
 [aliases]
-prep = ["bookmark", "move", "main", "-t", "@-"]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
