@@ -14,3 +14,6 @@ concat(
   diff.git(),
 )
 '''
+
+[aliases]
+prep = ["bookmark", "move", "main", "-t", "@-"]

@@ -1,6 +1,4 @@
 format = """
-$username\
-$hostname\
 $directory\
 ${custom.jj}\
 ${custom.git_branch}\
