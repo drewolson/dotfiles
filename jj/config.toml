@@ -17,3 +17,6 @@ concat(
 
 [aliases]
 ff = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[git]
+colocate = true
