@@ -17,6 +17,11 @@ concat(
 
 [aliases]
 ff = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+sync = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj git fetch
+jj rebase -d main -b @
+""", ""]
 
 [git]
 colocate = true
