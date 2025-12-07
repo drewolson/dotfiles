@@ -22,6 +22,11 @@ set -euo pipefail
 jj git fetch
 jj rebase -d main -b @
 """, ""]
+upload = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+jj ff
+jj git push
+""", ""]
 
 [git]
 colocate = true
