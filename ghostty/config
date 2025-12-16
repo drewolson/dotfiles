@@ -1,4 +1,5 @@
 command = zsh
+confirm-close-surface = false
 cursor-style = block
 cursor-style-blink = false
 font-family = Fira Code
