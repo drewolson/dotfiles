@@ -27,6 +27,10 @@ set -euo pipefail
 jj ff
 jj git push
 """, ""]
+fetch-pr = ["util", "exec", "--", "bash", "-c", """
+set -euo pipefail
+git fetch $1 pull/$2/head:pr/$2
+""", ""]
 
 [git]
 colocate = true
