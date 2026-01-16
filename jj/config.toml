@@ -37,11 +37,8 @@ git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
 [revset-aliases]
-"github_prs()" = 'bookmarks(regex:"pr/*")'
-"github_trunks()" = 'present(main) | present(main@upstream)'
-"github_fork_point()" = 'fork_point(github_prs() | github_trunks())'
-"github_leaves()" = 'bookmarks() | mine() | @ | github_prs()'
-"github()" = 'github_fork_point()::github_leaves()'
+"github_leaves()" = "present(main@upstream) | bookmarks() | heads(mine()) | @"
+"github()" = "fork_point(github_leaves())::github_leaves()"
 
 [revsets]
 log = "github()"
