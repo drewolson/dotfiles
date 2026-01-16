@@ -37,7 +37,9 @@ git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
 [revset-aliases]
-"github()" = "(tracked_remote_bookmarks() | present(main@upstream))::(bookmarks() | mine() | @)"
+"github_trunks()" = 'tracked_remote_bookmarks() | present(main@upstream)'
+"github_prs()" = 'bookmarks(regex:"pr/*")'
+"github()" = '(github_trunks() | heads(::github_trunks() & ::github_prs()))::(bookmarks() | mine() | @ | github_prs())'
 
 [revsets]
 log = "github()"
