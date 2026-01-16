@@ -15,8 +15,12 @@ concat(
 )
 '''
 
+[ui]
+default-command = "log"
+
 [aliases]
 ff = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+ll = ["log", "-n", "10", "-r", "all()"]
 sync = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 jj git fetch
