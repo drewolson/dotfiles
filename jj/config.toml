@@ -36,5 +36,8 @@ set -euo pipefail
 git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
+[revset-aliases]
+"github()" = "(tracked_remote_bookmarks() | present(main@upstream)):: & ::(bookmarks() | mine() | @)"
+
 [revsets]
-log = "(tracked_remote_bookmarks() | present(main@upstream)):: & ::(bookmarks() | mine() | @)"
+log = "github()"
