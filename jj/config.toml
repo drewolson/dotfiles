@@ -36,5 +36,5 @@ set -euo pipefail
 git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
-[git]
-colocate = true
+[revsets]
+log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | bookmarks()"
