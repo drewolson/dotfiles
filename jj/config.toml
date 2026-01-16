@@ -37,4 +37,4 @@ git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
 [revsets]
-log = "present(@) | ancestors(immutable_heads().., 2) | present(trunk()) | bookmarks()"
+log = "(tracked_remote_bookmarks() | present(main@upstream)):: & ::(bookmarks() | mine() | @)"
