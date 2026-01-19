@@ -37,9 +37,10 @@ git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
 [revset-aliases]
-"github_points_of_interest()" = "none()"
-"github_leaves()" = "github_points_of_interest() | present(main@upstream) | bookmarks() | heads(mine()) | @"
-"github()" = "fork_point(github_leaves())::github_leaves()"
+"github_custom_leaves()" = "none()"
+"github_leaves()" = "github_custom_leaves() | present(main@upstream) | bookmarks() | trunk() | heads(mine()) | @"
+"github_fork_point()" = "fork_point(github_leaves())"
+"github()" = "github_fork_point()::github_leaves()"
 
 [revsets]
 log = "github()"
