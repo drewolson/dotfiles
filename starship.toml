@@ -1,9 +1,6 @@
 format = """
 $directory\
 ${custom.jj}\
-${custom.git_branch}\
-${custom.git_state}\
-${custom.git_status}\
 $line_break\
 $character"""
 
@@ -14,75 +11,7 @@ truncation_length = 3
 truncate_to_repo = false
 truncation_symbol = "…/"
 
-# custom module for jj status
 [custom.jj]
-description = "The current jj status"
-detect_folders = [".jj"]
-symbol = "🥋 "
-command = '''
-jj log --revisions @ --no-graph --ignore-working-copy --color always --limit 1 --template '
-  separate(" ",
-    change_id.shortest(4),
-    bookmarks,
-    "|",
-    concat(
-      if(conflict, "💥"),
-      if(divergent, "🚧"),
-      if(hidden, "👻"),
-      if(immutable, "🔒"),
-    ),
-    raw_escape_sequence("\x1b[1;32m") ++ if(empty, "(empty)"),
-    raw_escape_sequence("\x1b[1;32m") ++ coalesce(
-      truncate_end(29, description.first_line(), "…"),
-      "(no description set)",
-    ) ++ raw_escape_sequence("\x1b[0m"),
-  )
-'
-'''
-
-[git_status]
-disabled = true
-
-[custom.git_status]
-detect_folders = [".git", "!.jj"]
-command = "starship module git_status"
-description = "Only show git_status if we're not in a jj repo"
-
-[git_commit]
-disabled = true
-
-[custom.git_commit]
-detect_folders = [".git", "!.jj"]
-command = "starship module git_commit"
-description = "Only show git_commit if we're not in a jj repo"
-style = "cyan"
-conflicted = "​"
-untracked = "​"
-modified = "​"
-staged = "​"
-renamed = "​"
-deleted = "​"
-stashed = "≡"
-
-[git_metrics]
-disabled = true
-
-[custom.git_metrics]
-detect_folders = [".git", "!.jj"]
-command = "starship module git_metrics"
-
-[git_branch]
-disabled = true
-
-[custom.git_branch]
-detect_folders = [".git", "!.jj"]
-command = "starship module git_branch"
-style = "bright-black"
-
-[git_state]
-disabled = true
-
-[custom.git_state]
-detect_folders = [".git", "!.jj"]
-command = "starship module git_state"
-style = "bright-black"
+when = "jj-starship detect"
+shell = ["jj-starship"]
+format = "$output "
