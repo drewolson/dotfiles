@@ -37,9 +37,9 @@ git fetch $1 pull/$2/head:pr/$2
 """, ""]
 
 [revset-aliases]
-"my_work()" = "heads(mine() & mutable())"
+"my_work()" = "heads(mine() & mutable()) | @"
 "github_custom_focus()" = "none()"
-"github_focus()" = "github_custom_focus() | present(main@upstream) | bookmarks() | trunk() | my_work() | @::"
+"github_focus()" = "github_custom_focus() | present(main@upstream) | bookmarks() | trunk() | my_work()"
 "github_leaves()" = "(github_focus() | conflicts() | my_work()::) & visible()"
 "github_fork_point()" = "fork_point(github_focus())"
 "github()" = "github_fork_point()::(github_leaves() | github_focus())"
