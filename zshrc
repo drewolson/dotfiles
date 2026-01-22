@@ -17,11 +17,6 @@ fi
 
 ls --color=auto &> /dev/null && alias ls='ls --color=auto'
 
-git_prompt_info() {
-  ref=$($(which git) symbolic-ref HEAD 2> /dev/null) || return
-  echo " (${ref#refs/heads/})"
-}
-
 if [[ -f /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi

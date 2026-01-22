@@ -11,3 +11,4 @@
 /tags
 /vendor/bundle
 /.nvimrc
+/.nvim.lua
