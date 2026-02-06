@@ -19,12 +19,12 @@ concat(
 default-command = "log"
 
 [aliases]
-ff = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+ff = ["bookmark", "move", "--from", "trunk()", "--to", "@-"]
 ll = ["log", "-n", "10", "-r", "all()"]
 sync = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
 jj git fetch
-jj rebase -d main -b @
+jj rebase -d trunk() -b @
 """, ""]
 push = ["util", "exec", "--", "bash", "-c", """
 set -euo pipefail
