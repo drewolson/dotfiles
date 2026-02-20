@@ -12,3 +12,4 @@
 /vendor/bundle
 /.nvimrc
 /.nvim.lua
+/CLAUDE.local.md
