@@ -1,26 +1,16 @@
 [user]
-name = "Drew Olson"
-email = "drew@drewolson.org"
-
-[templates]
-draft_commit_description = '''
-concat(
-  coalesce(description, default_commit_description, "\n"),
-  surround(
-    "\nJJ: This commit contains the following changes:\n", "",
-    indent("JJ:     ", diff.stat(72)),
-  ),
-  "\nJJ: ignore-rest\n",
-  diff.git(),
-)
-'''
+name = 'Drew Olson'
+email = 'drew@drewolson.org'
 
 [ui]
-default-command = "log"
+default-command = 'log'
 
 [aliases]
-pr-fetch = ["util", "exec", "--", "bash", "-c", """
+pr-fetch = ['util', 'exec', '--', 'bash', '-c', '''
 set -euo pipefail
 git fetch $1 pull/$2/head:pr/$2
 jj new pr/$2
-""", ""]
+''', '']
+
+[revsets]
+bookmark-advance-to = 'latest(::@ & ~empty())'
