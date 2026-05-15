@@ -1,14 +1,17 @@
-[color]
-  ui = auto
 [alias]
-  ci = commit
-  co = checkout
-  st = status
-  br = branch
-[core]
-  excludesfile = ~/.gitignore
+	co = checkout
+	st = status
+	ci = commit
 [user]
-  name = Hammer
-  email = millerjcr+github@gmail.com
+	name = Hammer
+	# email is set per-machine in ~/.gitconfig.local
 [push]
-  default = simple
+	autoSetupRemote = true
+[core]
+	excludesfile = ~/.gitignore_global
+[init]
+	defaultBranch = main
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[include]
+	path = ~/.gitconfig.local

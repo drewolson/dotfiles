@@ -1,293 +1,114 @@
-#!/bin/bash
+#!/usr/bin/env bash
+# Hammer's dotfiles installer. Idempotent: safe to re-run.
+#
+# Mappings: <repo path>  <target path>
+# Targets that already symlink to the right source are skipped silently.
+# Targets that are regular files get backed up to <target>.old before symlinking.
+#
+# Per-machine secrets/settings live in companion *.local files (NOT in this repo):
+#   ~/.zshrc.local       sourced from ~/.zshrc
+#   ~/.gitconfig.local   included from ~/.gitconfig via git's [include] mechanism
 
-realpath() {
-    canonicalize_path "$(resolve_symlinks "$1")"
-}
+set -euo pipefail
 
-resolve_symlinks() {
-    _resolve_symlinks "$1"
-}
+REPO_DIR="$(cd "$(dirname "$0")" && pwd)"
+DRY_RUN=0
+FORCE=0
 
-_resolve_symlinks() {
-    _assert_no_path_cycles "$@" || return
-
-    local dir_context path
-    path=$(readlink -- "$1")
-    if [ $? -eq 0 ]; then
-        dir_context=$(dirname -- "$1")
-        _resolve_symlinks "$(_prepend_dir_context_if_necessary "$dir_context" "$path")" "$@"
-    else
-        printf '%s\n' "$1"
-    fi
-}
-
-_prepend_dir_context_if_necessary() {
-    if [ "$1" = . ]; then
-        printf '%s\n' "$2"
-    else
-        _prepend_path_if_relative "$1" "$2"
-    fi
-}
-
-_prepend_path_if_relative() {
-    case "$2" in
-        /* ) printf '%s\n' "$2" ;;
-         * ) printf '%s\n' "$1/$2" ;;
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        -n|--dry-run) DRY_RUN=1; shift ;;
+        -f|--force)   FORCE=1; shift ;;
+        -h|--help)
+            echo "Usage: $0 [--dry-run] [--force]"
+            echo "  --dry-run   Show what would happen, don't change anything"
+            echo "  --force     Overwrite existing files without backing up"
+            exit 0
+            ;;
+        *) echo "Unknown arg: $1" >&2; exit 2 ;;
     esac
-}
+done
 
-_assert_no_path_cycles() {
-    local target path
+# repo-relative-source  target-absolute-path
+MAPPINGS=(
+    "tmux.conf       $HOME/.tmux.conf"
+    "zshrc           $HOME/.zshrc"
+    "zshenv          $HOME/.zshenv"
+    "gitconfig       $HOME/.gitconfig"
+    "gitignore       $HOME/.gitignore_global"
+    "ghostty/config  $HOME/.config/ghostty/config"
+)
 
-    target=$1
-    shift
+link_one() {
+    local source_rel="$1" target="$2"
+    local source_abs="$REPO_DIR/$source_rel"
 
-    for path in "$@"; do
-        if [ "$path" = "$target" ]; then
-            return 1
-        fi
-    done
-}
-
-canonicalize_path() {
-    if [ -d "$1" ]; then
-        _canonicalize_dir_path "$1"
-    else
-        _canonicalize_file_path "$1"
-    fi
-}
-
-_canonicalize_dir_path() {
-    (cd "$1" 2>/dev/null && pwd -P)
-}
-
-_canonicalize_file_path() {
-    local dir file
-    dir=$(dirname -- "$1")
-    file=$(basename -- "$1")
-    (cd "$dir" 2>/dev/null && printf '%s/%s\n' "$(pwd -P)" "$file")
-}
-
-
-function get_shell() {
-    echo ${SHELL} | grep -o '[^/]*$'
-}
-
-function get_platform() {
-    case `uname` in
-        Darwin) echo "macOS" ;;
-        Linux)  echo "Linux" ;;
-    esac
-}
-
-function get_username() {
-    echo `whoami`
-}
-
-function should_proceed() {
-    read -p "Proceed? [Y/n]: " response
-    case "${response}" in
-        Y|y|yes|"") echo "yes" ;;
-        N|n|no)     echo "no" ;;
-        *)          echo $(should_proceed) ;;
-    esac
-}
-
-function shell_config_file() {
-    local shell=$(get_shell)
-    local platform=$(get_platform)
-
-    if [ ${platform} == "macOS" -a ${shell} == "bash" ]; then
-        echo ".bash_profile"
-    elif [ ${shell} == "bash" ]; then
-        echo ".bashrc"
-    elif [ ${shell} == "zsh" ]; then
-        echo ".zshrc"
-    fi
-}
-
-function link() {
-    local target="${1}"
-    local source="${2}"
-
-    if [ -L "${target}" ]; then
-        echo "Re-symlinking ${target} to ${target}.old"
-        ln -s "$(realpath ${target})" "${target}.old"
-        rm "${target}"
-    elif [ -f "${target}" ]; then
-        echo "Renaming ${target} to ${target}.old"
-        mv "${target})" "${target}.old"
+    if [ ! -e "$source_abs" ]; then
+        printf "  ✗ source missing: %s\n" "$source_abs"
+        return 1
     fi
 
-    echo "Symlinking ${source} to ${target}"
-    ln -s "${source}" "${target}"
-}
-
-function install_shell_config() {
-    local shell=$(get_shell)
-
-    if [ ${shell} == "zsh" ]; then
-      install_zsh_config
-    else
-      install_bash_config
+    # Already symlinked correctly?
+    if [ -L "$target" ] && [ "$(readlink "$target")" = "$source_abs" ]; then
+        printf "  ✓ %s -> %s (already linked)\n" "$target" "$source_abs"
+        return 0
     fi
-}
 
-function install_zsh_config() {
-    local config_target="${HOME}/.zshrc"
-    local login_target="${HOME}/.zlogin"
-    local env_target="${HOME}/.zshenv"
-    local alias_target="${HOME}/.aliases"
-
-    local config_source=$(realpath "./zshrc")
-    local login_source=$(realpath "./zlogin")
-    local env_source=$(realpath "./zshenv")
-    local alias_source=$(realpath "./aliases")
-
-    echo
-    echo "Shell Config"
-    echo "------------"
-
-    if [ -L "${config_target}" -a "$(realpath ${config_target})" == "${config_source}" ]; then
-        echo "Shell Config is already linked."
-    else
-        echo "This step will:"
-        echo "* move ${config_target} to ${config_target}.old"
-        echo "* symlink ${config_source} to ${config_target}"
-        echo "* move ${login_target} to ${login_target}.old"
-        echo "* symlink ${login_source} to ${login_target}"
-        echo "* move ${env_target} to ${env_target}.old"
-        echo "* symlink ${env_source} to ${env_target}"
-        echo "* move ${alias_target} to ${alias_target}.old"
-        echo "* symlink ${alias_source} to ${alias_target}"
-        echo
-
-        if [ "$(should_proceed)" == "yes" ]; then
-            link ${config_target} ${config_source}
-            link ${login_target} ${login_source}
-            link ${env_target} ${env_source}
-            link ${alias_target} ${alias_source}
+    # Make sure parent directory exists
+    local target_dir; target_dir="$(dirname "$target")"
+    if [ ! -d "$target_dir" ]; then
+        if [ "$DRY_RUN" -eq 1 ]; then
+            printf "  · mkdir -p %s\n" "$target_dir"
         else
-            echo "Skipping shell config changes."
+            mkdir -p "$target_dir"
         fi
     fi
-}
 
-function install_bash_config() {
-    local config_target="${HOME}/$(shell_config_file)"
-    local alias_target="${HOME}/.aliases"
-
-    local config_source=$(realpath "./$(shell_config_file | cut -c2-)")
-    local alias_source=$(realpath "./aliases")
-
-    echo
-    echo "Shell Config"
-    echo "------------"
-
-    if [ -L "${config_target}" -a "$(realpath ${config_target})" == "${config_source}" ]; then
-        echo "Shell Config is already linked."
-    else
-        echo "This step will:"
-        echo "* move ${config_target} to ${config_target}.old"
-        echo "* symlink ${config_source} to ${config_target}"
-        echo "* move ${alias_target} to ${alias_target}.old"
-        echo "* symlink ${alias_source} to ${alias_target}"
-        echo
-
-        if [ "$(should_proceed)" == "yes" ]; then
-            link ${config_target} ${config_source}
-            link ${alias_target} ${alias_source}
+    # Handle existing target
+    if [ -e "$target" ] || [ -L "$target" ]; then
+        if [ "$FORCE" -eq 1 ]; then
+            if [ "$DRY_RUN" -eq 1 ]; then
+                printf "  · rm %s (--force)\n" "$target"
+            else
+                rm -rf "$target"
+            fi
         else
-            echo "Skipping shell config changes."
+            local backup="$target.old"
+            # If a previous .old already exists, append a timestamp
+            if [ -e "$backup" ]; then
+                backup="$target.old.$(date +%s)"
+            fi
+            if [ "$DRY_RUN" -eq 1 ]; then
+                printf "  · mv %s %s\n" "$target" "$backup"
+            else
+                mv "$target" "$backup"
+            fi
         fi
     fi
-}
 
-function install_git_config() {
-    local config_target="${HOME}/.gitconfig"
-    local ignore_target="${HOME}/.gitignore"
-
-    local config_source=$(realpath "./gitconfig")
-    local ignore_source=$(realpath "./gitignore")
-
-    echo
-    echo "Git Config"
-    echo "------------"
-
-    if [ -L "${config_target}" -a "$(realpath ${config_target})" == "${config_source}" ]; then
-        echo "Git Config is already linked."
+    if [ "$DRY_RUN" -eq 1 ]; then
+        printf "  → ln -s %s %s\n" "$source_abs" "$target"
     else
-        echo "This step will:"
-        echo "* move ${config_target} to ${config_target}.old"
-        echo "* symlink ${config_source} to ${config_target}"
-        echo "* move ${ignore_target} to ${ignore_target}.old"
-        echo "* symlink ${ignore_source} to ${ignore_target}"
-
-        response="$(should_proceed)"
-
-        if [ ${response} == "yes" ]; then
-            link ${config_target} ${config_source}
-            link ${ignore_target} ${ignore_source}
-        else
-            echo "Skipping git config changes."
-        fi
+        ln -s "$source_abs" "$target"
+        printf "  ✓ %s -> %s\n" "$target" "$source_abs"
     fi
 }
 
-function install_tmux_config() {
-    local config_target="${HOME}/.tmux.conf"
-    local config_source=$(realpath "./tmux.conf")
+echo "Hammer's dotfiles installer"
+echo "==========================="
+[ "$DRY_RUN" -eq 1 ] && echo "(dry run — no changes will be made)"
+echo
 
-    echo
-    echo "Tmux Config"
-    echo "----------------"
-
-    if [ -L "${config_target}" -a "$(realpath ${config_target})" == "${config_source}" ]; then
-        echo "Tmux Config is already linked."
-    else
-        echo "This step will:"
-        echo "* move ${config_target} to ${config_target}.old"
-        echo "* symlink ${config_source} to ${config_target}"
-
-        response="$(should_proceed)"
-
-        if [ ${response} == "yes" ]; then
-            link ${config_target} ${config_source}
-        else
-            echo "Skipping tmux config changes."
-        fi
-    fi
-}
-
-function install_spacemacs_config() {
-    local config_target="${HOME}/.spacemacs"
-    local config_source=$(realpath "./spacemacs")
-
-    echo
-    echo "Spacemacs Config"
-    echo "----------------"
-
-    if [ -L "${config_target}" -a "$(realpath ${config_target})" == "${config_source}" ]; then
-        echo "Spacemacs Config is already linked."
-    else
-        echo "This step will:"
-        echo "* move ${config_target} to ${config_target}.old"
-        echo "* symlink ${config_source} to ${config_target}"
-
-        response="$(should_proceed)"
-
-        if [ ${response} == "yes" ]; then
-            link ${config_target} ${config_source}
-        else
-            echo "Skipping spacemacs config changes."
-        fi
-    fi
-}
+for entry in "${MAPPINGS[@]}"; do
+    src=$(echo "$entry" | awk '{print $1}')
+    tgt=$(echo "$entry" | awk '{print $2}')
+    link_one "$src" "$tgt"
+done
 
 echo
-echo "Hammer's Environment Setup"
-echo "======================================="
-install_shell_config
-install_git_config
-install_tmux_config
-install_spacemacs_config
+echo "Done."
+echo
+echo "Reminders:"
+echo "  - ~/.zshrc.local      should hold per-machine env vars/secrets"
+echo "  - ~/.gitconfig.local  should hold per-machine git user.email"
+echo "  - Both are gitignored and not tracked in this repo."

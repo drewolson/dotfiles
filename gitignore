@@ -1,1 +1,17 @@
-/.DS_STORE
+# ~/.gitignore_global — applied to every git repo on the machine
+# Set via: git config --global core.excludesfile ~/.gitignore_global
+# (handled by the [core] excludesfile entry in our tracked gitconfig)
+
+# Personal Claude Code config — don't accidentally track this when it appears
+# nested inside another repo.
+.claude/
+
+# macOS junk
+.DS_Store
+
+# Editor junk
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

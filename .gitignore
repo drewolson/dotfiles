@@ -1,4 +1,11 @@
-/.DS_Store
+# OS / editor junk
+.DS_Store
 *.swp
-all/vimperator/info
+*.swo
+*~
 
+# Per-machine override files (must NEVER be committed — hold secrets / work email)
+*.local
+
+# Legacy from the 2019 fork
+all/vimperator/info
