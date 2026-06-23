@@ -1,5 +1,5 @@
 .tmtags
-/.DS_STORE
+.DS_STORE
 /.bundle
 /.elixir_ls
 /.rbenv-gemsets
@@ -13,4 +13,5 @@
 /.nvimrc
 /.nvim.lua
 /CLAUDE.local.md
+/AGENTS.local.md
 /.claude

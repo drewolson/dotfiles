@@ -7,6 +7,8 @@ font-size = 19
 font-thicken = true
 macos-titlebar-proxy-icon = hidden
 shell-integration-features = no-cursor
+term = xterm-256color
 theme = IR Black
 title = " "
+
 config-file = ?local-config
